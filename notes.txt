@@ -1,0 +1,8 @@
+## FRONT END
+
+# to run the project
+- move the terminal (cd) to app folder
+- run: npm start
+
+# curly braces in jsx = javascript
+# state variable are inmutable in react
