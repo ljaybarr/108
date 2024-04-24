@@ -1,0 +1,18 @@
+
+.product {
+    background-color: #fafbfc;
+    border: 1px solid #333;
+    height: 350px;
+    width: 280px;
+    display: inline-block;
+    margin: 12px 12px;
+}
+
+.product h5 {
+    font-size: 22px;
+    margin: 3px 0 5px 0;
+}
+
+.product img {
+    height: 220px;
+}

@@ -6,3 +6,11 @@
 
 # curly braces in jsx = javascript
 # state variable are inmutable in react
+
+#how to install bootstrap
+- terminate npm server
+- npm install -s bootstrap
+
+# how to install fontawesome
+- terminate npm server
+- npm install -s @fortawesome/fontawesome-free
