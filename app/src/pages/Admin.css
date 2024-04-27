@@ -1,0 +1,25 @@
+.admin {
+
+}
+
+.admin h1 {
+    color: #333;
+    text-align: center;
+}
+
+.admin .parent {
+    display: flex;
+    justify-content: center;
+}
+
+.admin .form h3 {
+    color: #333;
+}
+
+.admin .form {
+    width: 450px;
+    margin: 20px;
+    padding: 12px;
+    border: 1px solid;
+
+}

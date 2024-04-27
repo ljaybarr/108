@@ -14,3 +14,8 @@
 # how to install fontawesome
 - terminate npm server
 - npm install -s @fortawesome/fontawesome-free
+
+# how to install router-dom
+- terminate npm server
+- npm install react-router-dom
+- in App.js "import { BrowserRouter, Routes, Route } from 'react-router-dom';"

@@ -1,12 +1,14 @@
 import  "./Navbar.css"
 
+import { Link } from 'react-router-dom';
+
 function Navbar() {
     return (
         <nav className="navbar navbar-expand-lg" data-bs-theme="dark">
   <div className="container-fluid">
-    <a className="navbar-brand" href="#">
-      Navbar
-    </a>
+    <Link className="navbar-brand" to="#">
+      Instrument Store
+    </Link>
     <button
       className="navbar-toggler"
       type="button"
@@ -19,13 +21,39 @@ function Navbar() {
       <span className="navbar-toggler-icon" />
     </button>
     <div className="collapse navbar-collapse" id="navbarSupportedContent">
+
       <ul className="navbar-nav me-auto mb-2 mb-lg-0">
         <li className="nav-item">
-          <a className="nav-link active" aria-current="page" href="#">
+          <Link className="nav-link active" aria-current="page" to="/">
             Home
-          </a>
+          </Link>
+        </li>
+
+        <li className="nav-item">
+          <Link className="nav-link active" aria-current="page" to="/catalog">
+            Catalog
+          </Link>
+        </li>
+
+        <li className="nav-item">
+          <Link className="nav-link active" aria-current="page" to="/list">
+            Shopping List
+          </Link>
+        </li>
+
+        <li className="nav-item">
+          <Link className="nav-link active" aria-current="page" to="/about">
+            About us
+          </Link>
+        </li>
+
+        <li className="nav-item">
+          <Link className="nav-link active" aria-current="page" to="/admin">
+            Admin
+          </Link>
         </li>
       </ul>
+
       <form className="d-flex" role="search">
         <input
           className="form-control me-2"
@@ -33,7 +61,7 @@ function Navbar() {
           placeholder="Search"
           aria-label="Search"
         />
-        <button className="btn btn-outline-success" type="submit">
+        <button className="btn btn-outline-success" type="button">
           Search
         </button>
       </form>
