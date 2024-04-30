@@ -1,45 +1,60 @@
+import { useEffect, useState } from 'react';
 import Product from "../components/Product";
+import DataService from "../services/DataService";
 import "./Catalog.css";
 
 function Catalog() {
+    const [products, setProducts] = useState([]);
+    const [visibleProducts, setVisibleProducts] = useState([]);
+    const [categories, setCategories] = useState([]);
 
-    const products = [
-        {
-            title: "Guitar",
-            category: "Instruments",
-            price: 499.99,
-            image: "guitar.jfif",
-            _id: "gu1t4r"
-        },
-        {
-            title: "Drum Set",
-            category: "Instruments",
-            price: 999.99,
-            image: "drums.jfif",
-            _id: "drum$"
-        },
-        {
-            title: "Microphone",
-            category: "Instruments",
-            price: 149.99,
-            image: "mic.jfif",
-            _id: "m1cr0ph0n3"
-        },
-        {
-            title: "Piano",
-            category: "Instruments",
-            price: 1499.99,
-            image: "piano.jfif",
-            _id: "p1an0"
-        },
-    ];
+    function loadCatalog(){
+        const prods = DataService.getProducts();
+        setProducts(prods);
+        setVisibleProducts(prods);
+    }
 
+    function loadCategories(){
+        const cats = DataService.getCategories();
+        setCategories(cats);
+    }
+
+    useEffect(function(){
+        loadCatalog();
+        loadCategories();
+    }, []);
+
+    function filter(cat) {
+        let filterProds = products.filter(prod => prod.category == cat );
+        setVisibleProducts(filterProds);
+    }
+
+    function clearFilter() {
+        setVisibleProducts(products);
+    }
+
+    function searchByText(e){
+        let text = e.target.value;
+        let filterProds  = products.filter(prod => prod.title.toLowerCase().includes(text.toLowerCase()));
+        setVisibleProducts(filterProds);
+    }
+    
     return (
         <div className="catalog">
             <h2>Check out our amazing catalog!</h2>
 
+            <div className="filters">
+                <button onClick={clearFilter} className='btn'>All</button>
+                {categories.map(cat => <button onClick={ () => filter(cat) } className='btn' key={cat}>{cat}</button>)}
+
+                <div className="search">
+                <input onChange={searchByText} type='search'placeholder='Search...'  className='form-control'></input>
+                </div>
+            </div>
+
             <div className="products">
-                { products.map( prod => ( <Product key={prod._id} data={prod} />
+                {visibleProducts.map( (prod) => (
+                    <Product key={prod._id} data={prod} />
                 ))}
             </div>
         </div>

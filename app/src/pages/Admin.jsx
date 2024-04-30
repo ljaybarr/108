@@ -4,8 +4,12 @@ import { useState } from "react";
 
 function Admin() {
     const [product, setProduct] = useState({
+        title: "",
+        price: 0,
+        image: "",
+        category: ""
+        })
 
-    })
     const [allProducts, setAllProducts] = useState([]);
     const [coupon, setCoupon] = useState({
         code: '',
@@ -14,10 +18,10 @@ function Admin() {
     const [allCoupons, setAllCoupons] = useState([]);
 
     function handleProduct(e) {
-        let text = e.target.value;
-        let name = e.target.value;
+        const text = e.target.value;
+        const name = e.target.value;
 
-        let copy = { ...product };
+        const copy = { ...product };
         copy[name] = text;
         setProduct(copy);
     }
@@ -29,6 +33,14 @@ function Admin() {
         let copy = { ...coupon };
         copy[name] = text;
         setCoupon(copy);
+    }
+
+    function saveProduct() {
+        console.log(product);
+
+        const copy = [...allProducts];
+        copy.push(product);
+        setAllProducts(copy);
     }
 
     function saveCoupon() {
@@ -47,9 +59,23 @@ function Admin() {
             <h3>Product</h3>
         <div>
             <label className="form-label">Product</label>
-            <input onChange={handleProduct} name="product" type="text" className="form-control" />
+            <input onChange={handleProduct} name="title" type="text" className="form-control" />
         </div>
+        <div>
+            <label className="form-label">Price</label>
+            <input onChange={handleProduct} name="price" type="text" className="form-control" />
         </div>
+        <div>
+            <label className="form-label">Category</label>
+            <input onChange={handleProduct} name="catagory" type="text" className="form-control" />
+        </div>
+            <button onClick={saveProduct}>Add</button>
+        </div>
+
+        <ul className="list">
+            {allProducts.map((prod,index) => <li key={index}>{prod.title} - ${prod.price}</li>)}
+        </ul>
+        
 
 
         <div className="form">

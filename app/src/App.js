@@ -6,6 +6,7 @@ import ShoppingList from './pages/ShoppingList';
 import Home from './pages/Home';
 import About from './pages/About';
 import Admin from './pages/Admin';
+import Cart from './pages/Cart';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
@@ -24,6 +25,7 @@ function App() {
         <Route path="/list" element={<ShoppingList />} />
         <Route path="/about" element={<About />} />
         <Route path="/admin" element={<Admin />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
 
       <Footer />
