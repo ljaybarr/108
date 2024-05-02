@@ -70,11 +70,10 @@ function Admin() {
             <input onChange={handleProduct} name="catagory" type="text" className="form-control" />
         </div>
             <button onClick={saveProduct}>Add</button>
-        </div>
-
         <ul className="list">
             {allProducts.map((prod,index) => <li key={index}>{prod.title} - ${prod.price}</li>)}
         </ul>
+        </div>
         
 
 
