@@ -40,7 +40,7 @@ function Catalog() {
     }
     
     return (
-        <div className="catalog">
+        <div className="catalog page">
             <h2>Check out our amazing catalog!</h2>
 
             <div className="filters">

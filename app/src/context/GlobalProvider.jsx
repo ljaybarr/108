@@ -8,13 +8,30 @@ function GlobalProvider(props) {
 
     function addProductToCart(product) {
         const copy = [...cart];
-        copy.push(product);
+
+        let exist = false;
+
+        for(let i=0; i<copy.length; i++) {
+            let prodInCart = copy[i];
+            if(product._id === prodInCart._id) {
+                prodInCart.quantity += product.quantity;
+                exist = true;
+            }
+        }
+
+        if(!exist) {
+            copy.push(product);
+        }
+        
+        
         setCart(copy);
     }
 
     function removeProductsFromCart() { }
 
-    function clearCart() { }
+    function clearCart() {
+        setCart([]);
+    }
 
     return (
         <DataContext.Provider value={{

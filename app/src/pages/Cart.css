@@ -2,6 +2,7 @@
 .cart .cart-prod {
     display: flex;
     align-items: center;
+    justify-content: space-between;
     border: 1px solid #e3e4e5;
     margin: 10px 10px;
 }
@@ -16,4 +17,16 @@
 
 .cart .cart-prod .info {
     flex: 3;
+}
+
+.cart .parent {
+    display: flex;
+}
+
+.cart .parent .prods {
+    flex: 3;
+}
+
+.cart .parent .side-menu {
+    flex: 1;
 }

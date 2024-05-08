@@ -3,11 +3,11 @@ import "./Home.css"
 function Home() {
     return (
 
-    <div className="home">
+    <div className="home page">
         <h1>Welcome to Instrument Store</h1>
 
         <div>
-            <image src={"./images/instrumentStoreHomePage.jfif"} alt="homePage" />
+            <img src={"./images/instrumentStoreHomePage.jfif"} alt="homePage" />
         </div>
     </div>
     );

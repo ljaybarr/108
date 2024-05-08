@@ -27,7 +27,7 @@ function Product(props) {
     }
 
     return (
-        <div className="product">
+        <div className="product page">
 
             <img src={"/images/" + props.data.image} alt="" />
             <h5>{props.data.title}</h5>

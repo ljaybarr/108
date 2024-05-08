@@ -18,7 +18,7 @@ function ShoppingList() {
     }
 
     return (
-    <div className="shopping">
+    <div className="shopping page">
         <h1>Your Shopping List</h1>
 
         <div className="form">

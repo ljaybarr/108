@@ -51,7 +51,7 @@ function Admin() {
         setAllCoupons(copy);
     }
 
-    return <div className="admin">
+    return <div className="admin page">
         <h1>Welcome, Admin</h1>
 
         <div className="parent">
@@ -63,7 +63,7 @@ function Admin() {
         </div>
         <div>
             <label className="form-label">Price</label>
-            <input onChange={handleProduct} name="price" type="text" className="form-control" />
+            <input onChange={handleProduct} name="price" type="number" className="form-control" />
         </div>
         <div>
             <label className="form-label">Category</label>

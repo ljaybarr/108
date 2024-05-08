@@ -19,3 +19,22 @@
 - terminate npm server
 - npm install react-router-dom
 - in App.js "import { BrowserRouter, Routes, Route } from 'react-router-dom';"
+
+## BACKEND END
+
+# create a venv
+python3 -m venv venv
+
+# activate venv
+win:
+venv\Scripts\activate
+
+mac:
+source venv/bin/activate
+
+# deactivate venv
+deactivate
+
+
+# run server
+flask --app server --debug run
