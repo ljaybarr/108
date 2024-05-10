@@ -2,9 +2,11 @@ from flask import Flask, request, abort
 import json
 from config import db
 from bson import ObjectId
+from flask_cors import CORS
 
 
 app = Flask(__name__)
+CORS(app) # warning: this disables CORS protection
 
 @app.get('/')
 def home():

@@ -1,6 +1,7 @@
 import "./Admin.css"
 import Product from './../components/Product';
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import DataService from "../services/DataService";
 
 function Admin() {
     const [product, setProduct] = useState({
@@ -17,9 +18,24 @@ function Admin() {
     });
     const [allCoupons, setAllCoupons] = useState([]);
 
+    async function loadCatalog() {
+        let prods = await DataService.getProducts();
+        setAllProducts(prods);
+    }
+    
+    async function loadCoupon() {
+        let cp = await DataService.getCoupons();
+        setAllCoupons(cp);
+    }
+
+    useEffect(function () {
+        loadCatalog();
+        loadCoupon();
+    }, []);
+
     function handleProduct(e) {
         const text = e.target.value;
-        const name = e.target.value;
+        const name = e.target.name;
 
         const copy = { ...product };
         copy[name] = text;
@@ -36,11 +52,17 @@ function Admin() {
     }
 
     function saveProduct() {
-        console.log(product);
+        
+
+        let fixedProduct = {...product};
+        fixedProduct.price = parseFloat(fixedProduct.price);
 
         const copy = [...allProducts];
-        copy.push(product);
+        copy.push(fixedProduct);
         setAllProducts(copy);
+
+        console.log(product);
+        DataService.saveProduct(fixedProduct);
     }
 
     function saveCoupon() {
@@ -66,10 +88,14 @@ function Admin() {
             <input onChange={handleProduct} name="price" type="number" className="form-control" />
         </div>
         <div>
-            <label className="form-label">Category</label>
-            <input onChange={handleProduct} name="catagory" type="text" className="form-control" />
+            <label className="form-label">Image</label>
+            <input onChange={handleProduct} name="image" type="text" className="form-control" />
         </div>
-            <button onClick={saveProduct}>Add</button>
+        <div>
+            <label className="form-label">Category</label>
+            <input onChange={handleProduct} name="category" type="text" className="form-control" />
+        </div>
+            <button onClick={saveProduct} className="btn btn-outline-primary">Add</button>
         <ul className="list">
             {allProducts.map((prod,index) => <li key={index}>{prod.title} - ${prod.price}</li>)}
         </ul>

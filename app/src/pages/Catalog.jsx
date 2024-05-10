@@ -8,14 +8,14 @@ function Catalog() {
     const [visibleProducts, setVisibleProducts] = useState([]);
     const [categories, setCategories] = useState([]);
 
-    function loadCatalog(){
-        const prods = DataService.getProducts();
+    async function loadCatalog(){
+        const prods = await DataService.getProducts();
         setProducts(prods);
         setVisibleProducts(prods);
     }
 
-    function loadCategories(){
-        const cats = DataService.getCategories();
+    async function loadCategories(){
+        const cats = await DataService.getCategories();
         setCategories(cats);
     }
 

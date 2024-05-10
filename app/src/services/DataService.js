@@ -1,3 +1,5 @@
+import axios from 'axios';
+
 const products = [
     {
         title: "Guitar",
@@ -31,20 +33,27 @@ const products = [
 
 class DataService {
 
-    getProducts() {
+    serverURL = "http://127.0.0.1:5000/api";
 
-        return products;
+    async getProducts() {
+        let response = await axios.get(this.serverURL + "/products");
+        return response.data;
+
+        // return products;
     }
 
-    getCategories() {
+    async getCategories() {
+        let response = await axios.get(this.serverURL + "/categories");
+        return response.data;
 
-        return (
-        ['guitar', 'drum', 'mic', 'piano']
-        )
+        // return (
+        //['guitar', 'drum', 'mic', 'piano']
+        //)
     }
 
-    saveProduct() {
-
+    async saveProduct(product) {
+        let response = await axios.post(this.serverURL + "/products", product);
+        return response.data;
     }
 
 }
