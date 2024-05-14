@@ -13,10 +13,8 @@
 
 .cart .cart-prod label {
     flex: 1;
-}
-
-.cart .cart-prod .info {
-    flex: 3;
+    text-align: center;
+    padding: 0 10px;
 }
 
 .cart .parent {
